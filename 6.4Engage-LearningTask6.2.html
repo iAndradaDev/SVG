@@ -1,0 +1,151 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Learning Task 6.2 - Animated Rocket</title>
+    <style>
+        body {
+            margin: 0;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: #e9edf2;
+        }
+
+        svg {
+            width: 300px;
+            height: 300px;
+            border-radius: 15px;
+        }
+
+        .rocket {
+            animation: float 2s ease-in-out infinite;
+            transform-origin: center;
+            transform-box: fill-box;
+        }
+
+        .flame {
+            animation: flicker 0.4s ease-in-out infinite alternate;
+            transform-origin: center top;
+            transform-box: fill-box;
+        }
+
+        .star {
+            animation: twinkle 1.5s ease-in-out infinite alternate;
+        }
+
+        .star2 {
+            animation-delay: 0.5s;
+        }
+
+        .star3 {
+            animation-delay: 1s;
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(8px);
+            }
+            50% {
+                transform: translateY(-12px);
+            }
+        }
+
+        @keyframes flicker {
+            0% {
+                transform: scaleY(0.8);
+                opacity: 0.8;
+            }
+            100% {
+                transform: scaleY(1.2);
+                opacity: 1;
+            }
+        }
+
+        @keyframes twinkle {
+            0% {
+                opacity: 0.2;
+                transform: scale(0.8);
+            }
+            100% {
+                opacity: 1;
+                transform: scale(1.2);
+            }
+        }
+    </style>
+</head>
+<body>
+
+<svg width="300" height="300"
+     viewBox="0 0 300 300"
+     xmlns="http://www.w3.org/2000/svg">
+
+    <rect width="300" height="300"
+          rx="15" fill="#101827"/>
+
+    <g fill="#ffffff">
+        <circle class="star" cx="40" cy="45" r="3"/>
+        <circle class="star star2" cx="245" cy="55" r="4"/>
+        <circle class="star star3" cx="65" cy="180" r="3"/>
+        <circle class="star star2" cx="260" cy="200" r="3"/>
+        <circle class="star star3" cx="220" cy="125" r="2"/>
+        <circle class="star" cx="90" cy="85" r="2"/>
+    </g>
+
+    <g class="rocket">
+
+        <g class="flame">
+            <path d="M 135 210
+                     Q 125 245 150 275
+                     Q 175 245 165 210 Z"
+                  fill="#ff9f43"/>
+
+            <path d="M 142 215
+                     Q 137 245 150 260
+                     Q 163 245 158 215 Z"
+                  fill="#ffe66d"/>
+        </g>
+
+        <path d="M 125 175
+                 L 95 215
+                 L 125 205 Z"
+              fill="#ff6b6b"/>
+
+        <path d="M 175 175
+                 L 205 215
+                 L 175 205 Z"
+              fill="#ff6b6b"/>
+
+        <path d="M 150 45
+                 C 105 85 115 165 125 215
+                 L 175 215
+                 C 185 165 195 85 150 45 Z"
+              fill="#f1f2f6"/>
+
+        <path d="M 150 45
+                 Q 125 70 120 105
+                 L 180 105
+                 Q 175 70 150 45 Z"
+              fill="#ff6b6b"/>
+
+        <circle cx="150" cy="140" r="24"
+                fill="#54a0ff"
+                stroke="#2d3436"
+                stroke-width="6"/>
+
+        <circle cx="143" cy="132" r="7"
+                fill="#ffffff"
+                opacity="0.6"/>
+
+        <rect x="130" y="205"
+              width="40" height="12"
+              rx="4" fill="#636e72"/>
+
+    </g>
+
+</svg>
+
+</body>
+</html>
